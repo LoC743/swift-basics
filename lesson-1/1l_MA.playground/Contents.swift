@@ -68,3 +68,36 @@ let a: Double = 3.0  // Первый катет
 let b: Double = 4.0  // Второй катет
 
 solveTriangleData(a: a, b: b)
+
+
+/* ///////////////////////////////////////////////////////////////
+/// Пользователь вводит сумму вклада в банк и годовой процент. ///
+/////////////// Найти сумму вклада через 5 лет. //////////////////
+/////////////////////////////////////////////////////////////// */
+print("Задание 3:")
+
+func solveDeposit(deposit amount: Double, percent: Double, years: Int) {
+    guard amount > 0 && percent > 0 && years > 0 else {
+        print("Ошибка! Значения размера вклада, годового процента и количества лет должны быть больше 0.")
+        return
+    }
+    
+    let percentChange = percent / 100
+
+    var depositWithCap = amount     // с капитализацией
+    var depositWithoutCap = amount  // без капитализации
+
+    for i in 1...years {
+        depositWithCap += depositWithCap * percentChange
+        depositWithoutCap += depositAmount * percentChange
+        print("\(i) год. С капитализацией: \(depositWithCap.round(to: 3)) рублей. Без капитализации: \(depositWithoutCap.round(to: 3))")
+    }
+}
+
+
+let depositAmount: Double = 1000.0  // Сумма вклада в банк
+var percent: Double = 5.0           // Годовой процент
+
+let years: Int = 5
+
+solveDeposit(deposit: depositAmount, percent: percent, years: years)
