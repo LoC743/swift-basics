@@ -52,4 +52,22 @@ func createIntArray(size: Int) -> [Int] {
     return array
 }
 
-createIntArray(size: 100)
+let array = createIntArray(size: 100)
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+/// Удалить из этого массива все четные числа и все числа, которые не делятся на 3. ///
+//////////////////////////////////////////////////////////////////////////////////// */
+
+func removeNumbersFrom(array: [Int]) -> [Int] {
+    let resultArray = array.filter {
+        if isEven(number: $0) || !isDivisibleByThree(number: $0) {
+            return false
+        }
+        return true
+    }
+    
+    return resultArray
+}
+
+removeNumbersFrom(array: array)
