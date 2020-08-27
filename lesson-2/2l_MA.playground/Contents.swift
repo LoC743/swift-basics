@@ -32,3 +32,24 @@ func isDivisibleByThree(number: Int) -> Bool {
 
 isDivisibleByThree(number: 7)
 isDivisibleByThree(number: 6)
+
+
+/* //////////////////////////////////////////////
+/// Создать возрастающий массив из 100 чисел. ///
+///////////////////////////////////////////// */
+
+func createIntArray(size: Int) -> [Int] {
+    guard size > 0 else {
+        return []
+    }
+    
+    var array: [Int] = []
+    
+    for i in 1...size {
+        array.append(i)
+    }
+    
+    return array
+}
+
+createIntArray(size: 100)
