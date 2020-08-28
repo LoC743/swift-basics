@@ -114,3 +114,47 @@ let fibArr = createFibonacciArray(size: 10)
 fibArr.count  // Создается на 1 больше чем указан size, потому что первый элемент "0" считается 0-ым
 
 let newFibArr = addFibbonacci(to: fibArr, numberOfElements: 50)
+
+
+/* ////////////////////////////////////////////////////////////////////////////////////
+/// /////////// Заполнить массив элементов различными простыми числами. ///////////////
+/////////////// Натуральное число, большее единицы, называется простым, ///////////////
+/////////////// если оно делится только на себя и на единицу. /////////////////////////
+/// Для нахождения всех простых чисел не больше заданного числа n (пусть будет 100) ///
+//////////////////////////////////////////////////////////////////////////////////// */
+
+func createPrimeNumbersArray(n: Int) -> [Int] {
+    guard n > 0 else {
+        return []
+    }
+    
+    var resultArray: [Int] = []
+    var primes: [Bool] = []
+    
+    for _ in 0...n {
+        primes.append(true)
+    }
+    
+    var p = 2
+    
+    while p * p <= n {
+        if (primes[p] == true) {
+            var i = p * p
+            while i <= n {
+                primes[i] = false
+                i += p
+            }
+        }
+        p += 1
+    }
+    
+    for i in 2...n {
+        if primes[i] {
+            resultArray.append(i)
+        }
+    }
+    
+    return resultArray
+}
+
+let primeArray = createPrimeNumbersArray(n: 100)
