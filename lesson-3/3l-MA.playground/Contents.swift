@@ -77,43 +77,166 @@ enum WindowStatus {
 }
 
 struct Baggage {
+    let id: Int
     let name: String
     let description: String
     let weight: Int
 }
 
-struct SportCar {
-    let model: String
-    let year: Date
-    let trunkSize: Int       // Весь объем багажника
-    let usedTrunkSize: Int   // Используемый объем багажника
-    let isEngineStart: EngineStatus
-    let isWindowOpen: WindowStatus
-    
-    let baggageArray: [Baggage]  // Массив вещей в багажнике
-    
-    let color: UIColor
-    let bluetooth: Bool
-    let transmisson: Transmission
-    let mileage: Int
-}
+//struct SportCar {
+//    let model: String
+//    let year: Date
+//    let trunkSize: Int       // Весь объем багажника
+//    let usedTrunkSize: Int   // Используемый объем багажника
+//    let engineState: EngineStatus
+//    let windowState: WindowStatus
+//
+//    let baggageArray: [Baggage]  // Массив вещей в багажнике
+//
+//    let color: UIColor
+//    let bluetooth: Bool
+//    let transmisson: Transmission
+//    let mileage: Int
+//}
 
 /* ////////////////////////////////////////////////////////////////////////
 /// 4. Добавить в структуры метод с одним аргументом типа перечисления, ///
 /// который будет менять свойства структуры в зависимости от действия.  ///
 //////////////////////////////////////////////////////////////////////// */
 
+enum LockStatus {
+    case open
+    case close
+}
 
+struct SportCar {
+    let model: String
+    let year: Date
+    let trunkSpace: Int       // Весь объем багажника
+    var usedTrunkSpace: Int   // Используемый объем багажника
+    var engineState: EngineStatus {
+        didSet {
+            if engineState == .stopped {
+                print("Двигатель автомобиля не запущен.")
+            } else {
+                print("Двигаетль автомобиля запущен.")
+            }
+        }
+    }
+    var windowState: WindowStatus {
+        didSet {
+            if windowState == .close {
+                print("Окна автомобиля закрыты.")
+            } else {
+                print("Окна автомобиля открыты.")
+            }
+        }
+    }
+    
+    var baggageArray: [Baggage]  // Массив вещей в багажнике
+    
+    var lockState: LockStatus { // Закрыт автомобиль или открыт
+        didSet {
+            if lockState == .close {
+                print("Замок автомобиля закрыт.")
+            } else {
+                print("Замок автомобиля открыт.")
+            }
+        }
+    }
+    
+    let color: UIColor
+    let bluetooth: Bool
+    let transmisson: Transmission
+    let mileage: Int
+    
+    mutating func changelockState(to state: LockStatus) {
+        // Предположим что когда мы закрываем автомобиль - закрываются окна
+        if lockState == .open {
+            lockState = .close
+            windowState = .close
+        } else {
+            lockState = .open
+        }
+    }
+    
+    private mutating func increaseTruncSpace(_ space: Int) -> Bool {
+        var result = false
+        
+        if (space + usedTrunkSpace) <= trunkSpace {
+            usedTrunkSpace += space
+            result = true
+        }
+        
+        return result
+    }
+    
+    private mutating func decreaseTruncSpace(_ space: Int) -> Bool {
+        var result = false
+        
+        if (usedTrunkSpace - space) >= 0 {
+            usedTrunkSpace -= space
+            result = true
+        }
+        
+        return result
+    }
+    
+    mutating func addBaggage(_ baggage: Baggage) -> Bool {
+        var result = false
+        
+        if increaseTruncSpace(baggage.weight) {
+            baggageArray.append(baggage)
+            result = true
+        }
+        
+        return result
+    }
+    
+    mutating func removeBaggageBy(id: Int) -> Bool {
+        var result = false
+        
+        for i in 0..<baggageArray.count {
+            let baggage = baggageArray[i]
+            if baggage.id == id {
+                _ = decreaseTruncSpace(baggage.weight)
+                result = true
+                break
+            }
+        }
+        
+        return result
+    }
+    
+    func printBaggage() {
+        for item in baggageArray {
+            print("\(item.name) занимает \(item.weight) кг.")
+        }
+    }
+}
 
 /* ////////////////////////////////////////////////////////////////////
 ///////// 5. Инициализировать несколько экземпляров структур. /////////
 ////////////// Применить к ним различные действия. ////////////////////
 //////////////////////////////////////////////////////////////////// */
 
+var mercedesBenz = SportCar(model: "Mercedes-Benz AMG GT", year: Date(), trunkSpace: 100, usedTrunkSpace: 0, engineState: .stopped, windowState: .close, baggageArray: [], lockState: .close, color: .cyan, bluetooth: true, transmisson: .auto, mileage: 0)
 
+mercedesBenz.lockState = .open
+mercedesBenz.windowState = .open
+mercedesBenz.engineState = .running
+mercedesBenz.engineState = .stopped
+mercedesBenz.lockState = .close
+
+let pcBaggage = Baggage(id: 0, name: "PC", description: "Desktop PC", weight: 30)
+mercedesBenz.addBaggage(pcBaggage)
+
+let chairBaggage = Baggage(id: 1, name: "Chair", description: "Furniture", weight: 70)
+mercedesBenz.addBaggage(chairBaggage)
+
+mercedesBenz.addBaggage(pcBaggage)
 
 /* ////////////////////////////////////////////////////
 /// Вывести значения свойств экземпляров в консоль. ///
 //////////////////////////////////////////////////// */
-
 
