@@ -5,6 +5,19 @@ import UIKit
 /////////// SportCar и любой грузовик TrunkCar. /////////////////
 ////////////////////////////////////////////////////////////// */
 
+//struct SportCar {
+//    let color: UIColor
+//    let bluetooth: Bool
+//    let transmisson: Int // 1 - механическая 2 - автоматичекая 3 - отсутствует(для электромобилей)
+//    let mileage: Int
+//}
+//
+//struct TrunkCar {
+//    let color: UIColor
+//    let bluetooth: Bool
+//    let transmisson: Int
+//    let mileage: Int
+//}
 
 
 /* ///////////////////////////////////////////////////////////////////
@@ -13,7 +26,39 @@ import UIKit
 /// заполненный объем багажника.  ////////////////////////////////////
 /////////////////////////////////////////////////////////////////// */
 
+enum Transmission {
+    case manual
+    case auto
+    case none
+}
 
+struct SportCar {
+    let model: String
+    let year: Date
+    let trunkSize: Int       // Весь объем багажника
+    let usedTrunkSize: Int   // Используемый объем багажника
+    let isEngineStart: Bool
+    let isWindowOpen: Bool
+    
+    let color: UIColor
+    let bluetooth: Bool
+    let transmisson: Transmission
+    let mileage: Int
+}
+
+struct TrunkCar {
+    let model: String
+    let year: Date
+    let trunkSize: Int       // Весь объем багажника
+    let usedTrunkSize: Int   // Используемый объем багажника
+    let isEngineStart: Bool
+    let isWindowOpen: Bool
+    
+    let color: UIColor
+    let bluetooth: Bool
+    let transmisson: Transmission
+    let mileage: Int
+}
 
 /* ///////////////////////////////////////////////////////////////////////
 /// 3. Описать перечисление с возможными действиями с автомобилем: ///////
