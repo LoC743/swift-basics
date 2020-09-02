@@ -34,7 +34,7 @@ enum Transmission {
 
 //struct SportCar {
 //    let model: String
-//    let year: Date
+//    let year: Int
 //    let trunkSize: Int       // Весь объем багажника
 //    let usedTrunkSize: Int   // Используемый объем багажника
 //    let isEngineStart: Bool
@@ -48,7 +48,7 @@ enum Transmission {
 //
 //struct TrunkCar {
 //    let model: String
-//    let year: Date
+//    let year: Int
 //    let trunkSize: Int       // Весь объем багажника
 //    let usedTrunkSize: Int   // Используемый объем багажника
 //    let isEngineStart: Bool
@@ -85,7 +85,7 @@ struct Baggage {
 
 //struct SportCar {
 //    let model: String
-//    let year: Date
+//    let year: Int
 //    let trunkSize: Int       // Весь объем багажника
 //    let usedTrunkSize: Int   // Используемый объем багажника
 //    let engineState: EngineStatus
@@ -111,7 +111,7 @@ enum LockStatus {
 
 struct SportCar {
     let model: String
-    let year: Date
+    let year: Int
     let trunkSpace: Int       // Весь объем багажника
     var usedTrunkSpace: Int   // Используемый объем багажника
     var engineState: EngineStatus {
@@ -209,9 +209,31 @@ struct SportCar {
     }
     
     func printBaggage() {
+        guard baggageArray.count > 0 else {
+            print("Багажник пуст.")
+            return
+        }
+        
+        print("\nСодержимое багажника:")
         for item in baggageArray {
             print("\(item.name) занимает \(item.weight) кг.")
         }
+    }
+    
+    func printData() {
+        print("""
+            \nСпортивный автомобиль модели: \(model)
+            Год выпуска: \(year)
+            Цвет: \(color)
+            Трансмиссия: \(transmisson)
+            Пробег: \(mileage) km
+            Статус двигателя: \(engineState)
+            Статус окон: \(windowState)
+            Статус замка: \(lockState)
+            Объем багажника: \(trunkSpace)
+            Заполненность багажника \(usedTrunkSpace)
+            """)
+        printBaggage()
     }
 }
 
@@ -220,7 +242,7 @@ struct SportCar {
 ////////////// Применить к ним различные действия. ////////////////////
 //////////////////////////////////////////////////////////////////// */
 
-var mercedesBenz = SportCar(model: "Mercedes-Benz AMG GT", year: Date(), trunkSpace: 100, usedTrunkSpace: 0, engineState: .stopped, windowState: .close, baggageArray: [], lockState: .close, color: .cyan, bluetooth: true, transmisson: .auto, mileage: 0)
+var mercedesBenz = SportCar(model: "Mercedes-Benz AMG GT", year: 2020, trunkSpace: 100, usedTrunkSpace: 0, engineState: .stopped, windowState: .close, baggageArray: [], lockState: .close, color: .cyan, bluetooth: true, transmisson: .auto, mileage: 2000)
 
 mercedesBenz.lockState = .open
 mercedesBenz.windowState = .open
@@ -228,15 +250,27 @@ mercedesBenz.engineState = .running
 mercedesBenz.engineState = .stopped
 mercedesBenz.lockState = .close
 
+print()
+mercedesBenz.printData()
+
 let pcBaggage = Baggage(id: 0, name: "PC", description: "Desktop PC", weight: 30)
 mercedesBenz.addBaggage(pcBaggage)
 
 let chairBaggage = Baggage(id: 1, name: "Chair", description: "Furniture", weight: 70)
 mercedesBenz.addBaggage(chairBaggage)
 
-mercedesBenz.addBaggage(pcBaggage)
+mercedesBenz.printBaggage()
+
+let newpcBaggage = Baggage(id: 2, name: "PC", description: "New desktop PC", weight: 40)
+// Если возвращается false - не поместилось. Если true - то все ок.
+if !mercedesBenz.addBaggage(newpcBaggage) {
+    print("\nНе поместилось\n")
+}
+mercedesBenz.printBaggage()
+mercedesBenz.removeBaggageBy(id: 1)
+mercedesBenz.addBaggage(newpcBaggage)
+mercedesBenz.printBaggage()
 
 /* ////////////////////////////////////////////////////
 /// Вывести значения свойств экземпляров в консоль. ///
 //////////////////////////////////////////////////// */
-
