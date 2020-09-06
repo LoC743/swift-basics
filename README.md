@@ -4,7 +4,7 @@
 |---|---|
 | Урок №1 | :white_check_mark: |
 | Урок №2 | :white_check_mark: |
-| Урок №3 | :mag: |
+| Урок №3 | :white_check_mark: |
 | Урок №4 | :mag: |
 | Урок №5 | :cyclone: |
 | Урок №6 | :cyclone: |
