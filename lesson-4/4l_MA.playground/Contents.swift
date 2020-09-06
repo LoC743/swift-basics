@@ -142,22 +142,22 @@ class Car {
     }
 }
 
-var car = Car()
-car.printStatus()
-
-let pc = Baggage(id: 0, name: "PC", description: "Default PC", space: 30)
-let chair = Baggage(id: 1, name: "Chair", description: "Default chair", space: 70) // 71 для перевеса (при максимальном объеме в 100)
-
-car.addBaggage(pc)
-car.printBaggage()
-
-if (!car.addBaggage(chair)) {
-    print("\(chair.name), который имеет объем \(chair.space) не помеситался в багажник\n")
-}
-car.printBaggage()
-
-car.removeBaggageBy(pc.id)
-car.printBaggage()
+//var car = Car()
+//car.printStatus()
+//
+//let pc = Baggage(id: 0, name: "PC", description: "Default PC", space: 30)
+//let chair = Baggage(id: 1, name: "Chair", description: "Default chair", space: 70) // 71 для перевеса (при максимальном объеме в 100)
+//
+//car.addBaggage(pc)
+//car.printBaggage()
+//
+//if (!car.addBaggage(chair)) {
+//    print("\(chair.name), который имеет объем \(chair.space) не помеситался в багажник\n")
+//}
+//car.printBaggage()
+//
+//car.removeBaggageBy(pc.id)
+//car.printBaggage()
 
 
 /* ////////////////////////////////////////////////////////////////////////
@@ -166,7 +166,71 @@ car.printBaggage()
 /// Описать в каждом наследнике специфичные для него свойства. ////////////
 //////////////////////////////////////////////////////////////////////// */
 
+enum TruckType {
+    case mixer
+    case mobileCrane
+    case dumpTruck
+    case garbageTruck
+    case logCarrier
+    case truck
+}
 
+enum BodyType {
+    case buggy
+    case cabriolet
+    case coupe
+    case hatchback
+    case kombi
+    case limousine
+    case microvan
+    case minivan
+    case pickup
+    case roadster
+    case sedan
+    case wagon
+}
+
+class TrunkCar: Car {
+    let truckType: TruckType
+    let liftingCapacity: Int
+    let cargoWeight: Int
+
+    init?(truckType: TruckType, liftingCapacity: Int, cargoWeight: Int, model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt) {
+        guard liftingCapacity > cargoWeight else {
+            return nil
+        }
+
+        self.truckType = truckType
+        self.liftingCapacity = liftingCapacity
+        self.cargoWeight = cargoWeight
+
+        super.init(model: model, year: year, trunkSpace: trunkSpace, baggageArray: baggageArray, color: color, bluetooth: bluetooth, mileage: mileage, transmission: transmission, hp: hp, weight: weight)
+    }
+
+    override init() {
+        self.truckType = .truck
+        self.liftingCapacity = 15000
+        self.cargoWeight = 0
+        super.init()
+    }
+}
+
+class SportCar: Car {
+    let bodyType: BodyType
+    let accelerationTime: Double
+    
+    init?(model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt, bodyType: BodyType, accelerationTime: Double) {
+        self.bodyType = bodyType
+        self.accelerationTime = accelerationTime
+        super.init(model: model, year: year, trunkSpace: trunkSpace, baggageArray: baggageArray, color: color, bluetooth: bluetooth, mileage: mileage, transmission: transmission, hp: hp, weight: weight)
+    }
+    
+    override init() {
+        self.bodyType = .sedan
+        self.accelerationTime = 10.0
+        super.init()
+    }
+}
 
 /* ///////////////////////////////////////////////////////////////////////////
 /// 3. Взять из прошлого урока enum с действиями над автомобилем. ////////////
