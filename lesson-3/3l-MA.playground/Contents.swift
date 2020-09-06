@@ -200,6 +200,7 @@ struct SportCar {
             let baggage = baggageArray[i]
             if baggage.id == id {
                 _ = decreaseTruncSpace(baggage.weight)
+                baggageArray.remove(at: i)
                 result = true
                 break
             }
@@ -268,6 +269,7 @@ if !mercedesBenz.addBaggage(newpcBaggage) {
 }
 mercedesBenz.printBaggage()
 mercedesBenz.removeBaggageBy(id: 1)
+mercedesBenz.printBaggage()
 mercedesBenz.addBaggage(newpcBaggage)
 mercedesBenz.printBaggage()
 
