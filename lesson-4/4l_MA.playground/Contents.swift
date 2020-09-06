@@ -190,12 +190,76 @@ enum BodyType {
     case wagon
 }
 
+//class TrunkCar: Car {
+//    let truckType: TruckType
+//    let liftingCapacity: Int
+//    let cargoWeight: Int
+//
+//    init?(truckType: TruckType, liftingCapacity: Int, cargoWeight: Int, model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt) {
+//        guard liftingCapacity > cargoWeight else {
+//            return nil
+//        }
+//
+//        self.truckType = truckType
+//        self.liftingCapacity = liftingCapacity
+//        self.cargoWeight = cargoWeight
+//
+//        super.init(model: model, year: year, trunkSpace: trunkSpace, baggageArray: baggageArray, color: color, bluetooth: bluetooth, mileage: mileage, transmission: transmission, hp: hp, weight: weight)
+//    }
+//
+//    override init() {
+//        self.truckType = .truck
+//        self.liftingCapacity = 15000
+//        self.cargoWeight = 0
+//        super.init()
+//    }
+//}
+//
+//class SportCar: Car {
+//    let bodyType: BodyType
+//    let accelerationTime: Double
+//
+//    init?(model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt, bodyType: BodyType, accelerationTime: Double) {
+//        self.bodyType = bodyType
+//        self.accelerationTime = accelerationTime
+//        super.init(model: model, year: year, trunkSpace: trunkSpace, baggageArray: baggageArray, color: color, bluetooth: bluetooth, mileage: mileage, transmission: transmission, hp: hp, weight: weight)
+//    }
+//
+//    override init() {
+//        self.bodyType = .sedan
+//        self.accelerationTime = 10.0
+//        super.init()
+//    }
+//}
+
+/* ///////////////////////////////////////////////////////////////////////////
+/// 3. Взять из прошлого урока enum с действиями над автомобилем. ////////////
+/// Подумать, какие особенные действия имеет TrunkCar, а какие – SportCar. ///
+/// Добавить эти действия в перечисление. ////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////// */
+
+enum TrailerStatus: String {
+    case unloading = "Производится разгрузка"
+    case loading = "Производится загрузка"
+    case onWay = "В пути"
+}
+
+enum WindowStatus: String {
+    case open = "Окна открыты"
+    case close = "Окна закрыты"
+}
+
 class TrunkCar: Car {
     let truckType: TruckType
     let liftingCapacity: Int
     let cargoWeight: Int
+    var trailerState: TrailerStatus {
+        didSet {
+            print("Грузовик \(model). Статус трейлера: \(trailerState.rawValue)")
+        }
+    }
 
-    init?(truckType: TruckType, liftingCapacity: Int, cargoWeight: Int, model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt) {
+    init?(truckType: TruckType, liftingCapacity: Int, cargoWeight: Int, model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt, trailerState: TrailerStatus) {
         guard liftingCapacity > cargoWeight else {
             return nil
         }
@@ -203,6 +267,7 @@ class TrunkCar: Car {
         self.truckType = truckType
         self.liftingCapacity = liftingCapacity
         self.cargoWeight = cargoWeight
+        self.trailerState = trailerState
 
         super.init(model: model, year: year, trunkSpace: trunkSpace, baggageArray: baggageArray, color: color, bluetooth: bluetooth, mileage: mileage, transmission: transmission, hp: hp, weight: weight)
     }
@@ -211,33 +276,43 @@ class TrunkCar: Car {
         self.truckType = .truck
         self.liftingCapacity = 15000
         self.cargoWeight = 0
+        self.trailerState = .onWay
         super.init()
     }
 }
 
+//let truck = TrunkCar()
+//truck.trailerState = .loading
+//truck.trailerState = .onWay
+//truck.trailerState = .unloading
+
 class SportCar: Car {
     let bodyType: BodyType
     let accelerationTime: Double
+    var windowState: WindowStatus {
+        didSet {
+            print("Автомобиль \(model). Статус окон: \(windowState.rawValue)")
+        }
+    }
     
-    init?(model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt, bodyType: BodyType, accelerationTime: Double) {
+    init?(model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt, bodyType: BodyType, accelerationTime: Double, windowState: WindowStatus) {
         self.bodyType = bodyType
         self.accelerationTime = accelerationTime
+        self.windowState = windowState
         super.init(model: model, year: year, trunkSpace: trunkSpace, baggageArray: baggageArray, color: color, bluetooth: bluetooth, mileage: mileage, transmission: transmission, hp: hp, weight: weight)
     }
     
     override init() {
         self.bodyType = .sedan
         self.accelerationTime = 10.0
+        self.windowState = .close
         super.init()
     }
 }
 
-/* ///////////////////////////////////////////////////////////////////////////
-/// 3. Взять из прошлого урока enum с действиями над автомобилем. ////////////
-/// Подумать, какие особенные действия имеет TrunkCar, а какие – SportCar. ///
-/// Добавить эти действия в перечисление. ////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////// */
-
+//let sportCar = SportCar()
+//sportCar.windowState = .close
+//sportCar.windowState = .open
 
 
 /* /////////////////////////////////////////////////////////
