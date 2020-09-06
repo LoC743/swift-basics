@@ -27,10 +27,12 @@ class Car {
     let bluetooth: Bool
     let mileage: Int
     let transmission: Transmission
+    let hp: UInt
+    let weight: UInt
     
     private var baggageArray: [Baggage]
     
-    init?(model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission) {
+    init?(model: String, year: UInt16, trunkSpace: Int, baggageArray: [Baggage], color: UIColor, bluetooth: Bool, mileage: Int, transmission: Transmission, hp: UInt, weight: UInt) {
         self.usedTrunkSpace = 0
         for baggage in baggageArray {
             self.usedTrunkSpace += baggage.space
@@ -48,6 +50,8 @@ class Car {
         self.bluetooth = bluetooth
         self.mileage = mileage
         self.transmission = transmission
+        self.hp = hp
+        self.weight = weight
     }
     
     init() {
@@ -60,6 +64,8 @@ class Car {
         self.bluetooth = true
         self.mileage = 0
         self.transmission = .auto
+        self.hp = 100
+        self.weight = 1000
     }
     
     private func increaseTrunkSpace(_ space: Int) -> Bool {
@@ -127,6 +133,8 @@ class Car {
             Цвет: \(color)
             Трансмиссия: \(transmission)
             Пробег: \(mileage)
+            Мощность двигателя (лс): \(hp)
+            Масса: \(weight)
             Объем багажника: \(trunkSpace)
             Использованный объем багажника: \(usedTrunkSpace)
             \n
@@ -134,22 +142,22 @@ class Car {
     }
 }
 
-//var car = Car()
-//car.printStatus()
-//
-//let pc = Baggage(id: 0, name: "PC", description: "Default PC", space: 30)
-//let chair = Baggage(id: 1, name: "Chair", description: "Default chair", space: 70) // 71 для перевеса (при максимальном объеме в 100)
-//
-//car.addBaggage(pc)
-//car.printBaggage()
-//
-//if (!car.addBaggage(chair)) {
-//    print("\(chair.name), который имеет объем \(chair.space) не помеситался в багажник\n")
-//}
-//car.printBaggage()
-//
-//car.removeBaggageBy(0)
-//car.printBaggage()
+var car = Car()
+car.printStatus()
+
+let pc = Baggage(id: 0, name: "PC", description: "Default PC", space: 30)
+let chair = Baggage(id: 1, name: "Chair", description: "Default chair", space: 70) // 71 для перевеса (при максимальном объеме в 100)
+
+car.addBaggage(pc)
+car.printBaggage()
+
+if (!car.addBaggage(chair)) {
+    print("\(chair.name), который имеет объем \(chair.space) не помеситался в багажник\n")
+}
+car.printBaggage()
+
+car.removeBaggageBy(pc.id)
+car.printBaggage()
 
 
 /* ////////////////////////////////////////////////////////////////////////
