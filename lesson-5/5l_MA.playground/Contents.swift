@@ -1,11 +1,46 @@
 import UIKit
 
+struct Baggage {
+    let id: Int
+    let name: String
+    let description: String
+    let space: Int
+}
+
+enum Transmission {
+    case auto
+    case manual
+    case none
+}
 
 /* ///////////////////////////////////////////////////
 /// 1. Создать протокол «Car» и описать свойства,  ///
 /// общие для автомобилей, а также метод действия. ///
 /////////////////////////////////////////////////// */
 
+protocol Car {
+    var model: String { get }
+    var year: UInt16 { get }
+    var trunkSpace: Int { get }
+    var usedTrunkSpace: Int { get }
+    var color: UIColor { get }
+    var bluetooth: Bool { get }
+    var mileage: Int { get }
+    var transmission: Transmission { get }
+    var hp: UInt { get }
+    var weight: UInt { get }
+    
+    var baggageArray: [Baggage] { get set }
+    
+    func increaseTrunkSpace(_ space: Int) -> Bool
+    func decreaseTrunkSpace(_ space: Int) -> Bool
+    
+    func addBaggage(_ baggage: Baggage) -> Bool
+    func removeBaggageBy(_ id: Int) -> Bool
+    
+    func printBaggage()
+    func printStatus()
+}
 
 
 /* /////////////////////////////////////////////////////////////////////////////
