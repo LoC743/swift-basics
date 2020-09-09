@@ -381,10 +381,10 @@ extension TrunkCar: CustomStringConvertible {
         Состояние трейлера: \(trailerState.rawValue)
         Объем багажника: \(trunkSpace)
         Использованный объем багажника: \(usedTrunkSpace)
-        \n\nСодержимое багажника:
+        \n\nСодержимое багажника:\n
         """
         for baggage in baggageArray {
-            description += "\(baggage.name) занимает \(baggage.space) пространства багажника."
+            description += "\(baggage.name) занимает \(baggage.space) пространства багажника.\n"
         }
         description += "\nЗанято \(usedTrunkSpace) из \(trunkSpace)\n"
         
@@ -411,10 +411,10 @@ extension SportCar: CustomStringConvertible {
         Состояние двигателя: \(engineState.rawValue)
         Объем багажника: \(trunkSpace)
         Использованный объем багажника: \(usedTrunkSpace)
-        \n\nСодержимое багажника:
+        \n\nСодержимое багажника:\n
         """
         for baggage in baggageArray {
-            description += "\(baggage.name) занимает \(baggage.space) пространства багажника."
+            description += "\(baggage.name) занимает \(baggage.space) пространства багажника.\n"
         }
         description += "\nЗанято \(usedTrunkSpace) из \(trunkSpace)\n"
         
@@ -477,3 +477,11 @@ if var car = sportCar {
 /* ///////////////////////////////////////
 /// 6. Вывести сами объекты в консоль. ///
 /////////////////////////////////////// */
+
+if let trunk = trunkCar {
+    print(trunk)
+}
+
+if let sport = sportCar {
+    print(sport)
+}
