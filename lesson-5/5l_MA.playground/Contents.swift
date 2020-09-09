@@ -427,7 +427,52 @@ extension SportCar: CustomStringConvertible {
 /// Применить к ним различные действия.           ///
 ////////////////////////////////////////////////// */
 
+// Багаж(личные вещи)
+let pc = Baggage(id: 0, name: "PC", description: "Обычный PC", space: 30)
+let chair = Baggage(id: 1, name: "Стул", description: "Обычный стул", space: 70)
+let table = Baggage(id: 2, name: "Стол", description: "Обычный стол", space: 180)
+let wardrobe = Baggage(id: 3, name: "Шкаф", description: "Огромный шкаф", space: 500)
 
+//let trunkCar = TrunkCar()
+let trunkCar = TrunkCar(truckType: .truck, liftingCapacity: 25000, cargoWeight: 10000, model: "MAN", year: 2018, trunkSpace: 1500, baggageArray: [], color: .red, bluetooth: true, mileage: 1500, transmission: .auto, hp: 700, weight: 37000, trailerState: .onWay)
+
+if var trunkCar = trunkCar {
+    trunkCar.printStatus()
+    trunkCar.printBaggage()
+
+    trunkCar.addBaggage(pc)
+    trunkCar.addBaggage(chair)
+    trunkCar.addBaggage(table)
+    trunkCar.addBaggage(wardrobe)
+    trunkCar.printBaggage()
+
+    trunkCar.removeBaggageBy(table.id)
+    trunkCar.removeBaggageBy(chair.id)
+    trunkCar.printBaggage()
+}
+
+//let sportCar = SportCar()
+let sportCar = SportCar(model: "Toyota", year: 1998, trunkSpace: 300, baggageArray: [], color: .orange, bluetooth: false, mileage: 330000, transmission: .manual, hp: 280, weight: 1270, bodyType: .coupe, accelerationTime: 5.8)
+
+if var car = sportCar {
+    car.printStatus()
+    car.printBaggage()
+
+    car.addBaggage(pc)
+    car.addBaggage(chair)
+    car.addBaggage(table)
+    car.printBaggage()
+
+    if (!car.addBaggage(wardrobe)) {
+        print("\n\(wardrobe.name) не поместился в \(car.model)\n")
+    }
+    
+    car.printBaggage()
+
+    car.removeBaggageBy(table.id)
+    car.removeBaggageBy(chair.id)
+    car.printBaggage()
+}
 
 /* ///////////////////////////////////////
 /// 6. Вывести сами объекты в консоль. ///
