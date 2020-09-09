@@ -360,7 +360,67 @@ class SportCar: Car {
 /// имплементирующее протокол CustomStringConvertible. ///
 /////////////////////////////////////////////////////// */
 
+extension TrunkCar: CustomStringConvertible {
+    var description: String {
+        var description = """
+        \n
+        Грузовой автомобиль. Класс TruckCar
+        Тип: Грузовой
+        Модель: \(model)
+        Год выпуска: \(year)
+        Цвет: \(color)
+        Трансмиссия: \(transmission.rawValue)
+        Пробег: \(mileage)
+        Мощность двигателя (лс): \(hp)
+        Масса: \(weight)
+        Тип: \(truckType.rawValue)
+        Грузоподъемность \(liftingCapacity)
+        Вес груза: \(cargoWeight)
+        Состояние окон: \(windowsState.rawValue)
+        Состояние двигателя: \(engineState.rawValue)
+        Состояние трейлера: \(trailerState.rawValue)
+        Объем багажника: \(trunkSpace)
+        Использованный объем багажника: \(usedTrunkSpace)
+        \n\nСодержимое багажника:
+        """
+        for baggage in baggageArray {
+            description += "\(baggage.name) занимает \(baggage.space) пространства багажника."
+        }
+        description += "\nЗанято \(usedTrunkSpace) из \(trunkSpace)\n"
+        
+        return description
+    }
+}
 
+extension SportCar: CustomStringConvertible {
+    var description: String {
+        var description = """
+        \n
+        Легковой спортивный автомобиль. Класс SportCar
+        Тип: Легковой
+        Модель: \(model)
+        Год выпуска: \(year)
+        Цвет: \(color)
+        Трансмиссия: \(transmission.rawValue)
+        Пробег: \(mileage)
+        Мощность двигателя (лс): \(hp)
+        Масса: \(weight)
+        Тип: \(bodyType.rawValue)
+        Разгон (0 - 100км/ч): \(accelerationTime)
+        Состояние окон: \(windowsState.rawValue)
+        Состояние двигателя: \(engineState.rawValue)
+        Объем багажника: \(trunkSpace)
+        Использованный объем багажника: \(usedTrunkSpace)
+        \n\nСодержимое багажника:
+        """
+        for baggage in baggageArray {
+            description += "\(baggage.name) занимает \(baggage.space) пространства багажника."
+        }
+        description += "\nЗанято \(usedTrunkSpace) из \(trunkSpace)\n"
+        
+        return description
+    }
+}
 
 /* //////////////////////////////////////////////////
 /// 5. Создать несколько объектов каждого класса. ///
@@ -372,4 +432,3 @@ class SportCar: Car {
 /* ///////////////////////////////////////
 /// 6. Вывести сами объекты в консоль. ///
 /////////////////////////////////////// */
-
