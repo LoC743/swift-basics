@@ -69,9 +69,51 @@ queue.isEmpty()
 /// полезных для этой коллекции (пример: filter для массивов) ///
 ////////////////////////////////////////////////////////////// */
 
+extension Queue {
+    func filter(predicate: (T) -> Bool) -> [T] {
+        var result: [T] = []
+        
+        for item in elements {
+            if predicate(item) {
+                result.append(item)
+            }
+        }
+        
+        return result
+    }
+    
+    mutating func map(transform: (T) -> T) -> Queue {
+        var result: [T] = []
+        
+        for item in elements {
+            let newElement = transform(item)
+            result.append(newElement)
+        }
+        
+        elements = result
+        
+        return self
+    }
+    
+    mutating func sort(by: (T, T) -> Bool ) -> Queue {
+        self.elements.sort(by: by)
+        
+        return self
+    }
+}
 
+queue = Queue<Int>(maxSize: 10)
+for i in 0..<10 { queue.add(i) }
+let filtered = queue.filter() { $0 > 5 }
+print("Filter: \(filtered)")
 
-/* ///////////////////////////////////////////////////////////////
-/// 3. * Добавить свой subscript, который будет возвращать nil ///
-/// в случае обращения к несуществующему индексу.              ///
-/////////////////////////////////////////////////////////////// */
+let mapped = queue.map() { $0 * $0 }
+print("Map: \(mapped)")
+
+let sorted = queue.sort() { $0 > $1 }
+print("Sort: \(sorted)")
+
+/* /////////////////////////////////////////////////////////////
+/// 3. Добавить свой subscript, который будет возвращать nil ///
+/// в случае обращения к несуществующему индексу.            ///
+///////////////////////////////////////////////////////////// */
