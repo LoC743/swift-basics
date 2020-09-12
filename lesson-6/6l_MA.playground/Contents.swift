@@ -117,3 +117,19 @@ print("Sort: \(sorted)")
 /// 3. Добавить свой subscript, который будет возвращать nil ///
 /// в случае обращения к несуществующему индексу.            ///
 ///////////////////////////////////////////////////////////// */
+
+extension Queue {
+    subscript (index: UInt) -> T? {
+        var element: T? = nil
+        
+        if index < elements.count {
+            element = elements[Int(index)]
+        }
+        
+        return element
+    }
+}
+
+queue[0]
+queue[9]
+queue[10]
