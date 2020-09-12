@@ -83,22 +83,26 @@ extension Queue {
     }
     
     mutating func map(transform: (T) -> T) -> Queue {
-        var result: [T] = []
+        var result: Queue = Queue<T>(maxSize: self.maxSize)
         
         for item in elements {
             let newElement = transform(item)
-            result.append(newElement)
+            result.add(newElement)
         }
         
-        elements = result
-        
-        return self
+        return result
     }
     
     mutating func sort(by: (T, T) -> Bool ) -> Queue {
-        self.elements.sort(by: by)
+        var result: Queue = Queue<T>(maxSize: self.maxSize)
+        var sortedArray = elements
+        sortedArray.sort(by: by)
         
-        return self
+        for item in sortedArray {
+            result.add(item)
+        }
+        
+        return result
     }
 }
 
