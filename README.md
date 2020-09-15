@@ -5,9 +5,9 @@
 | Урок №1 | :white_check_mark: |
 | Урок №2 | :white_check_mark: |
 | Урок №3 | :white_check_mark: |
-| Урок №4 | :mag: |
-| Урок №5 | :cyclone: |
-| Урок №6 | :cyclone: |
+| Урок №4 | :white_check_mark: |
+| Урок №5 | :mag: |
+| Урок №6 | :mag: |
 | Урок №7 | :cyclone: |
 | Урок №8 | :cyclone: |
 
