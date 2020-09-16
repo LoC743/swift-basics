@@ -156,7 +156,7 @@ func testCar() {
     print(strongCar.removeBaggageBy(id: 0)) // Ошибка удаления элемента из пустого багажника.
 }
 
-//testCar()
+testCar()
 
 /* /////////////////////////////////////////////////////////////////////////////////
  /// 2. Придумать класс, методы которого могут выбрасывать ошибки.                ///
@@ -164,3 +164,123 @@ func testCar() {
  /// Вызовите их и обработайте результат вызова при помощи конструкции try/catch. ///
  ///////////////////////////////////////////////////////////////////////////////// */
 
+enum PasswordValidationError: Error {
+    case tooShort
+    case noCapitalLetters
+    case noNumbers
+    case noSymbols
+    case noSmallLetters
+}
+
+class PasswordValidation {
+    private let smallLetters = "qwertyuiopasdfghjklzxcvbnm"
+    private let numbers = "0123456789"
+    private let capitalLetters = "QWERTYUIOPASDFGHJKLZXCVBNM"
+    private let symbols = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    
+    private let minimalLength: Int
+    
+    init(minimalLength: Int) {
+        self.minimalLength = minimalLength
+    }
+    
+    private func checkSmallLetters(_ password: String) throws {
+        var flag = false
+        for char in password {
+            if smallLetters.contains(char) {
+                flag = true
+                break
+            }
+        }
+        
+        if !flag { throw PasswordValidationError.noSmallLetters }
+    }
+    
+    private func checkNumbers(_ password: String) throws {
+        var flag = false
+        for char in password {
+            if numbers.contains(char) {
+                flag = true
+                break
+            }
+        }
+        
+        if !flag { throw PasswordValidationError.noNumbers }
+    }
+    
+    private func checkCapitalLetters(_ password: String) throws {
+        var flag = false
+        for char in password {
+            if capitalLetters.contains(char) {
+                flag = true
+                break
+            }
+        }
+        
+        if !flag { throw PasswordValidationError.noCapitalLetters }
+    }
+    
+    private func checkSymbols(_ password: String) throws {
+        var flag = false
+        for char in password {
+            if symbols.contains(char) {
+                flag = true
+                break
+            }
+        }
+        
+        if !flag { throw PasswordValidationError.noSymbols }
+    }
+    
+    private func checkLength(_ password: String) throws {
+        guard password.count >= minimalLength else { throw PasswordValidationError.tooShort }
+    }
+    
+    func validate(password: String) throws {
+        do {
+            try checkLength(password)
+            try checkSmallLetters(password)
+            try checkCapitalLetters(password)
+            try checkNumbers(password)
+            try checkSymbols(password)
+        } catch PasswordValidationError.noSmallLetters {
+            throw PasswordValidationError.noSmallLetters
+        } catch PasswordValidationError.noCapitalLetters {
+            throw PasswordValidationError.noCapitalLetters
+        } catch PasswordValidationError.noNumbers {
+            throw PasswordValidationError.noNumbers
+        } catch PasswordValidationError.noSymbols {
+            throw PasswordValidationError.noSymbols
+        } catch PasswordValidationError.tooShort {
+            throw PasswordValidationError.tooShort
+        }
+    }
+}
+
+let validator = PasswordValidation(minimalLength: 6)
+
+let pass0 = "qQ1/aaa" // Все ок
+let pass1 = "qQ1aaa" // без символов
+let pass2 = "qQ/aaa" // без цифр
+let pass3 = "Q1/111" // без маленьких букв
+let pass4 = "q1/aaa" // без заглавных букв
+let pass5 = "q1/A" // Меньше заданной длинны
+
+do {
+//    try validator.validate(password: pass0)
+    try validator.validate(password: pass1)
+//    try validator.validate(password: pass2)
+//    try validator.validate(password: pass3)
+//    try validator.validate(password: pass4)
+//    try validator.validate(password: pass5)
+} catch PasswordValidationError.noSmallLetters {
+    print("Пароль не содержит маленьких букв!")
+} catch PasswordValidationError.noCapitalLetters {
+    print("Пароль не содержит заглавных букв!")
+} catch PasswordValidationError.noNumbers {
+    print("Пароль не содержит цифр!")
+} catch PasswordValidationError.noSymbols {
+    print("Пароль не содержит символов!")
+} catch PasswordValidationError.tooShort {
+    print("Пароль слишком короткий!")
+}
