@@ -6,10 +6,9 @@
 | Урок №2 | :white_check_mark: |
 | Урок №3 | :white_check_mark: |
 | Урок №4 | :white_check_mark: |
-| Урок №5 | :mag: |
-| Урок №6 | :mag: |
-| Урок №7 | :mag: |
-| Урок №8 | :cyclone: |
+| Урок №5 | :white_check_mark: |
+| Урок №6 | :white_check_mark: |
+| Урок №7 | :white_check_mark: |
 
 * :x: - не начато
 * :white_check_mark: - готово
