@@ -42,7 +42,15 @@ class GameScene: SKScene {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
- 
+        for touch in touches {
+            let touchLocation = touch.location(in: self)
+            guard let touchedNode = self.atPoint(touchLocation) as? SKShapeNode,
+                  touchedNode.name == "counterClockwiseButton" ||
+                  touchedNode.name == "clockwiseButton"
+            else { return }
+            
+            touchedNode.fillColor = .green
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -50,7 +58,15 @@ class GameScene: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        for touch in touches {
+            let touchLocation = touch.location(in: self)
+            guard let touchedNode = self.atPoint(touchLocation) as? SKShapeNode,
+                  touchedNode.name == "counterClockwiseButton" ||
+                    touchedNode.name == "clockwiseButton"
+            else { return }
+            
+            touchedNode.fillColor = .gray
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
