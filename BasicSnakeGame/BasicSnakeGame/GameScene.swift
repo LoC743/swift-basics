@@ -39,6 +39,8 @@ class GameScene: SKScene {
         clockwiseButton.name = "clockwiseButton"
         
         self.addChild(clockwiseButton)
+        
+        createApple()
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -76,5 +78,14 @@ class GameScene: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
+    }
+    
+    func createApple() {
+        let randX = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxX - 5)) + 1)
+        let randY = CGFloat(arc4random_uniform(UInt32(view!.scene!.frame.maxY - 5)) + 1)
+        
+        let apple = Apple(position: CGPoint(x: randX, y: randY))
+        
+        self.addChild(apple)
     }
 }
