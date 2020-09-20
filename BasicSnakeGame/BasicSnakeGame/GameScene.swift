@@ -15,7 +15,7 @@ class GameScene: SKScene {
     let gameOverDuration: TimeInterval = 1.5
     
     override func didMove(to view: SKView) {
-        backgroundColor = .black
+        backgroundColor = SKColor(red: 41/255, green: 42/255, blue: 47/255, alpha: 1.0)
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
@@ -42,7 +42,7 @@ class GameScene: SKScene {
         counterClockwiseButton.position = CGPoint(x: view!.scene!.frame.minX + 30, y: view!.scene!.frame.minY + 30)
         counterClockwiseButton.fillColor = .gray
         counterClockwiseButton.strokeColor = .gray
-        counterClockwiseButton.lineWidth = 10
+        counterClockwiseButton.lineWidth = 5
         counterClockwiseButton.name = "counterClockwiseButton"
         
         self.addChild(counterClockwiseButton)
@@ -54,7 +54,7 @@ class GameScene: SKScene {
         clockwiseButton.position = CGPoint(x: view!.scene!.frame.maxX - 80, y: view!.scene!.frame.minY + 30)
         clockwiseButton.fillColor = .gray
         clockwiseButton.strokeColor = .gray
-        clockwiseButton.lineWidth = 10
+        clockwiseButton.lineWidth = 5
         clockwiseButton.name = "clockwiseButton"
         
         self.addChild(clockwiseButton)
@@ -68,7 +68,7 @@ class GameScene: SKScene {
                   touchedNode.name == "clockwiseButton"
             else { return }
             
-            touchedNode.fillColor = .green
+            touchedNode.fillColor = .lightGray
             
             if touchedNode.name == "counterClockwiseButton" {
                 snake!.moveCounterClockwise()
@@ -117,7 +117,7 @@ class GameScene: SKScene {
         
         self.removeAllChildren()
         
-        let gameOver = SKLabelNode(fontNamed: "System")
+        let gameOver = SKLabelNode(fontNamed: "Helvetica Light")
         gameOver.text = "Game over!\nYour score: \(score)"
         gameOver.numberOfLines = 2
         gameOver.fontSize = 30

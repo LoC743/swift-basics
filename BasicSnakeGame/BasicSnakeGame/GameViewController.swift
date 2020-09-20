@@ -14,16 +14,16 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = GameScene(size: self.view.bounds.size)
+        let scene = GameScene(size: UIScreen.main.bounds.size)
         
-        if let view = self.view as! SKView? {
-            view.ignoresSiblingOrder = true // Произвольный порядок рендеринга объектов в узле
-            
-            view.showsFPS = true // Отображение FPS
-            view.showsNodeCount = true // Показывать количество объектов на экране
-            
-            view.presentScene(scene)
-        }
+        let skView = self.view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
+        
+        scene.scaleMode = .resizeFill
+        
+        skView.presentScene(scene)
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
