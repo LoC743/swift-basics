@@ -10,19 +10,26 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    
+    lazy var skView: SKView = {
+        let view = SKView(frame: self.view.frame)
+        view.backgroundColor = .blue
+        view.showsFPS = true
+        view.showsNodeCount = true
+        view.ignoresSiblingOrder = true
+
+        return view
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = GameScene(size: UIScreen.main.bounds.size)
+        view.addSubview(skView)
         
-        let skView = self.view as! SKView
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        skView.ignoresSiblingOrder = true
-        
-        scene.scaleMode = .resizeFill
-        
+        let scene = GameScene(size: skView.bounds.size)
+        scene.scaleMode = .aspectFit
+    
         skView.presentScene(scene)
     }
 
