@@ -57,6 +57,12 @@ class GameScene: SKScene {
             else { return }
             
             touchedNode.fillColor = .green
+            
+            if touchedNode.name == "counterClockwiseButton" {
+                snake!.moveCounterClockwise()
+            } else if touchedNode.name == "clockwiseButton" {
+                snake!.moveClockwise()
+            }
         }
     }
     
@@ -82,7 +88,7 @@ class GameScene: SKScene {
     
     
     override func update(_ currentTime: TimeInterval) {
-        
+        snake!.move()
     }
     
     func createApple() {
