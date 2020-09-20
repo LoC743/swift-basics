@@ -16,9 +16,12 @@ class GameScene: SKScene {
         backgroundColor = .black
         
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        self.physicsWorld.contactDelegate = self
         
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         self.physicsBody?.allowsRotation = false
+        self.physicsBody?.categoryBitMask = CollisionCategories.EdgeBody
+        self.physicsBody?.collisionBitMask = CollisionCategories.Snake | CollisionCategories.SnakeHead
         
         view.showsPhysics = true
         
@@ -99,4 +102,31 @@ class GameScene: SKScene {
         
         self.addChild(apple)
     }
+}
+
+extension GameScene: SKPhysicsContactDelegate {
+    func didBegin(_ contact: SKPhysicsContact) {
+        let bodyes = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
+        let collisionObject = bodyes ^ CollisionCategories.SnakeHead
+        
+        switch collisionObject {
+        case CollisionCategories.Apple:
+            let apple = contact.bodyA.node
+                is Apple ? contact.bodyA.node : contact.bodyB.node
+            snake?.addBodyPart()
+            apple?.removeFromParent()
+            createApple()
+        case CollisionCategories.EdgeBody:
+            break
+        default:
+            break
+        }
+    }
+}
+
+struct CollisionCategories {
+    static let Snake: UInt32 = 0x1 << 0
+    static let SnakeHead: UInt32 = 0x1 << 1
+    static let Apple: UInt32 = 0x1 << 2
+    static let EdgeBody: UInt32 = 0x1 << 3
 }
