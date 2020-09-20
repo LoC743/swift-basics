@@ -15,8 +15,6 @@ class GameScene: SKScene {
     let gameOverDuration: TimeInterval = 1.5
     
     override func didMove(to view: SKView) {
-        backgroundColor = SKColor(red: 41/255, green: 42/255, blue: 47/255, alpha: 1.0)
-        
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsWorld.contactDelegate = self
         

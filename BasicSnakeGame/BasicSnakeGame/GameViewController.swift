@@ -10,27 +10,21 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    
-    lazy var skView: SKView = {
-        let view = SKView(frame: self.view.frame)
-        view.backgroundColor = .blue
-        view.showsFPS = true
-        view.showsNodeCount = true
-        view.ignoresSiblingOrder = true
-
-        return view
-    }()
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addSubview(skView)
-        
-        let scene = GameScene(size: skView.bounds.size)
-        scene.scaleMode = .aspectFit
-    
-        skView.presentScene(scene)
+        if let skView = self.view as! SKView? {
+            skView.ignoresSiblingOrder = true // Произвольный порядок рендеринга объектов в узле
+            skView.allowsTransparency = true
+            skView.showsFPS = true // Отображение FPS
+            skView.showsNodeCount = true // Показывать количество объектов на экране
+            
+            let scene = GameScene(size: view.bounds.size)
+            scene.backgroundColor = UIColor(red: 42/255, green: 43/255, blue: 47/255, alpha: 1.0)
+                
+            skView.presentScene(scene)
+        }
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {

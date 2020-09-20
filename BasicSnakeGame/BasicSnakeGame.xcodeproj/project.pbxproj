@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A5FCB4A2517ACD400620131 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A5FCB492517ACD400620131 /* Launch Screen.storyboard */; };
+		8A5FCB502517B55600620131 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A5FCB4F2517B55600620131 /* Main.storyboard */; };
 		8AFCBB092517683D0060095B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB082517683D0060095B /* AppDelegate.swift */; };
 		8AFCBB0F2517683D0060095B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB0E2517683D0060095B /* GameScene.swift */; };
 		8AFCBB112517683D0060095B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB102517683D0060095B /* GameViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A5FCB492517ACD400620131 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8A5FCB4F2517B55600620131 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8AFCBB052517683D0060095B /* BasicSnakeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicSnakeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AFCBB082517683D0060095B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AFCBB0E2517683D0060095B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8A5FCB482517ACC300620131 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8A5FCB492517ACD400620131 /* Launch Screen.storyboard */,
+				8A5FCB4F2517B55600620131 /* Main.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		8AFCBAFC2517683D0060095B = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +73,7 @@
 		8AFCBB072517683D0060095B /* BasicSnakeGame */ = {
 			isa = PBXGroup;
 			children = (
+				8A5FCB482517ACC300620131 /* Support */,
 				8AFCBB2D2517722E0060095B /* Snake */,
 				8AFCBB2E251772430060095B /* Apple */,
 				8AFCBB082517683D0060095B /* AppDelegate.swift */,
@@ -146,6 +160,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5FCB502517B55600620131 /* Main.storyboard in Resources */,
+				8A5FCB4A2517ACD400620131 /* Launch Screen.storyboard in Resources */,
 				8AFCBB16251768400060095B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +237,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -276,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,8 +308,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9LK5ZZR926;
 				INFOPLIST_FILE = BasicSnakeGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,15 +327,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = BasicSnakeGame/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = alexeymorozov.BasicSnakeGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
