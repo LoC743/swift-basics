@@ -67,4 +67,10 @@ class Snake: SKShapeNode {
     func moveCounterClockwise() {
         angle -= CGFloat(Double.pi/2)
     }
+    
+    func getScore() -> Int {
+        guard body.count > 0 else { return 0 }
+        
+        return body.count - 1
+    }
 }
