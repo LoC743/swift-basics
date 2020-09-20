@@ -10,6 +10,8 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var snake: Snake?
+    
     override func didMove(to view: SKView) {
         backgroundColor = .black
         
@@ -41,6 +43,9 @@ class GameScene: SKScene {
         self.addChild(clockwiseButton)
         
         createApple()
+        
+        snake = Snake(atPoint: CGPoint(x: view.scene!.frame.midX, y: view.scene!.frame.midY))
+        self.addChild(snake!)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
