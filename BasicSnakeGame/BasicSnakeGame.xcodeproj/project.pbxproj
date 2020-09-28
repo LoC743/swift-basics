@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8A5FCB4A2517ACD400620131 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A5FCB492517ACD400620131 /* Launch Screen.storyboard */; };
+		8A5FCB502517B55600620131 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A5FCB4F2517B55600620131 /* Main.storyboard */; };
+		8AFCBB092517683D0060095B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB082517683D0060095B /* AppDelegate.swift */; };
+		8AFCBB0F2517683D0060095B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB0E2517683D0060095B /* GameScene.swift */; };
+		8AFCBB112517683D0060095B /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB102517683D0060095B /* GameViewController.swift */; };
+		8AFCBB16251768400060095B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AFCBB15251768400060095B /* Assets.xcassets */; };
+		8AFCBB2225176F880060095B /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB2125176F880060095B /* Apple.swift */; };
+		8AFCBB25251770EB0060095B /* SnakeBodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB24251770EB0060095B /* SnakeBodyPart.swift */; };
+		8AFCBB28251771F60060095B /* SnakeHead.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB27251771F60060095B /* SnakeHead.swift */; };
+		8AFCBB2B251772270060095B /* Snake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFCBB2A251772270060095B /* Snake.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		8A5FCB492517ACD400620131 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8A5FCB4F2517B55600620131 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8AFCBB052517683D0060095B /* BasicSnakeGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicSnakeGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AFCBB082517683D0060095B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8AFCBB0E2517683D0060095B /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		8AFCBB102517683D0060095B /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		8AFCBB15251768400060095B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8AFCBB17251768400060095B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AFCBB2125176F880060095B /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
+		8AFCBB24251770EB0060095B /* SnakeBodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeBodyPart.swift; sourceTree = "<group>"; };
+		8AFCBB27251771F60060095B /* SnakeHead.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeHead.swift; sourceTree = "<group>"; };
+		8AFCBB2A251772270060095B /* Snake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snake.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8AFCBB022517683D0060095B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8A5FCB482517ACC300620131 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8A5FCB492517ACD400620131 /* Launch Screen.storyboard */,
+				8A5FCB4F2517B55600620131 /* Main.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		8AFCBAFC2517683D0060095B = {
+			isa = PBXGroup;
+			children = (
+				8AFCBB072517683D0060095B /* BasicSnakeGame */,
+				8AFCBB062517683D0060095B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8AFCBB062517683D0060095B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8AFCBB052517683D0060095B /* BasicSnakeGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8AFCBB072517683D0060095B /* BasicSnakeGame */ = {
+			isa = PBXGroup;
+			children = (
+				8A5FCB482517ACC300620131 /* Support */,
+				8AFCBB2D2517722E0060095B /* Snake */,
+				8AFCBB2E251772430060095B /* Apple */,
+				8AFCBB082517683D0060095B /* AppDelegate.swift */,
+				8AFCBB0E2517683D0060095B /* GameScene.swift */,
+				8AFCBB102517683D0060095B /* GameViewController.swift */,
+				8AFCBB15251768400060095B /* Assets.xcassets */,
+				8AFCBB17251768400060095B /* Info.plist */,
+			);
+			path = BasicSnakeGame;
+			sourceTree = "<group>";
+		};
+		8AFCBB2D2517722E0060095B /* Snake */ = {
+			isa = PBXGroup;
+			children = (
+				8AFCBB24251770EB0060095B /* SnakeBodyPart.swift */,
+				8AFCBB27251771F60060095B /* SnakeHead.swift */,
+				8AFCBB2A251772270060095B /* Snake.swift */,
+			);
+			path = Snake;
+			sourceTree = "<group>";
+		};
+		8AFCBB2E251772430060095B /* Apple */ = {
+			isa = PBXGroup;
+			children = (
+				8AFCBB2125176F880060095B /* Apple.swift */,
+			);
+			path = Apple;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8AFCBB042517683D0060095B /* BasicSnakeGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AFCBB1A251768400060095B /* Build configuration list for PBXNativeTarget "BasicSnakeGame" */;
+			buildPhases = (
+				8AFCBB012517683D0060095B /* Sources */,
+				8AFCBB022517683D0060095B /* Frameworks */,
+				8AFCBB032517683D0060095B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BasicSnakeGame;
+			productName = BasicSnakeGame;
+			productReference = 8AFCBB052517683D0060095B /* BasicSnakeGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8AFCBAFD2517683D0060095B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					8AFCBB042517683D0060095B = {
+						CreatedOnToolsVersion = 12.0;
+					};
+				};
+			};
+			buildConfigurationList = 8AFCBB002517683D0060095B /* Build configuration list for PBXProject "BasicSnakeGame" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8AFCBAFC2517683D0060095B;
+			productRefGroup = 8AFCBB062517683D0060095B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8AFCBB042517683D0060095B /* BasicSnakeGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8AFCBB032517683D0060095B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A5FCB502517B55600620131 /* Main.storyboard in Resources */,
+				8A5FCB4A2517ACD400620131 /* Launch Screen.storyboard in Resources */,
+				8AFCBB16251768400060095B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8AFCBB012517683D0060095B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AFCBB28251771F60060095B /* SnakeHead.swift in Sources */,
+				8AFCBB2225176F880060095B /* Apple.swift in Sources */,
+				8AFCBB0F2517683D0060095B /* GameScene.swift in Sources */,
+				8AFCBB112517683D0060095B /* GameViewController.swift in Sources */,
+				8AFCBB25251770EB0060095B /* SnakeBodyPart.swift in Sources */,
+				8AFCBB2B251772270060095B /* Snake.swift in Sources */,
+				8AFCBB092517683D0060095B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8AFCBB18251768400060095B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8AFCBB19251768400060095B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8AFCBB1B251768400060095B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9LK5ZZR926;
+				INFOPLIST_FILE = BasicSnakeGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = alexeymorozov.BasicSnakeGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8AFCBB1C251768400060095B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = BasicSnakeGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = alexeymorozov.BasicSnakeGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8AFCBB002517683D0060095B /* Build configuration list for PBXProject "BasicSnakeGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AFCBB18251768400060095B /* Debug */,
+				8AFCBB19251768400060095B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AFCBB1A251768400060095B /* Build configuration list for PBXNativeTarget "BasicSnakeGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AFCBB1B251768400060095B /* Debug */,
+				8AFCBB1C251768400060095B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8AFCBAFD2517683D0060095B /* Project object */;
+}
